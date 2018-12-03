@@ -4,14 +4,17 @@ class Account
 
   def initialize
     @balance = 0
+    @time = Time.now
   end
 
   def deposit(amount)
     @balance += amount
+    @time
   end
 
   def withdraw(amount)
     @balance -= amount
+    @time
   end
 
   def statement
