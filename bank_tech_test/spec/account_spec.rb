@@ -14,4 +14,13 @@ describe Account do
     end
   end
 
+  describe '#withdraw' do
+    it "deducts the withdrawal amount from the current balance" do
+      account = Account.new
+      account.deposit(1000)
+      account.withdraw(50)
+      expect(account.balance).to eq 950
+    end
+  end
+
 end
