@@ -23,4 +23,12 @@ describe Account do
     end
   end
 
+  describe '#statement' do
+    it "displays the current balance" do
+      account = Account.new
+      account.deposit(1000)
+      expect(account.statement).to eq "new balance: 1000"
+    end
+  end
+
 end
