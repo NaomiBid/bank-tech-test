@@ -14,4 +14,8 @@ class Account
     @balance -= amount
   end
 
+  def statement
+    "new balance: #{balance}"
+  end
+
 end
