@@ -6,41 +6,28 @@ describe Account do
     expect(subject.balance).to eq 0
   end
 
-  describe '#deposit' do
+  describe '#transaction' do
     before do
       @fake_time = Time.now
       Time.stub(:now) { @fake_time }
     end
 
-    it "returns the time and date of the deposit" do
+    it "returns the time and date of the transaction" do
       account = Account.new
-      expect(account.deposit(1000)).to equal @fake_time
+      expect(account.transaction("deposit", 1000)).to equal @fake_time
     end
 
     it "adds the deposit amount to the current balance" do
       account = Account.new
-      account.deposit(1000)
+      account.transaction("deposit", 1000)
       expect(account.balance).to eq 1000
-    end
-  end
-
-  describe '#withdraw' do
-    before do
-      @fake_time = Time.now
-      Time.stub(:now) { @fake_time }
     end
 
     it "deducts the withdrawal amount from the current balance" do
       account = Account.new
-      account.deposit(1000)
-      account.withdraw(50)
+      account.transaction("deposit", 1000)
+      account.transaction("withdrawal", 50)
       expect(account.balance).to eq 950
-    end
-
-    it "returns the time and date of the withdrawal" do
-      account = Account.new
-      account.deposit(1000)
-      expect(account.withdraw(50)).to equal @fake_time
     end
   end
 

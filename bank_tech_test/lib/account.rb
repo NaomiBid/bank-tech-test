@@ -9,13 +9,12 @@ class Account
     @time
   end
 
-  def deposit(amount)
-    @balance += amount
-    @time = Time.now
-  end
-
-  def withdraw(amount)
-    @balance -= amount
+  def transaction(type, amount)
+    if type == "deposit"
+      @balance += amount
+    else
+      @balance -= amount
+    end
     @time = Time.now
   end
 
