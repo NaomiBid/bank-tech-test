@@ -1,4 +1,4 @@
-require 'transaction'
+require_relative 'statement'
 
 class Account
 
@@ -6,21 +6,21 @@ class Account
 
   def initialize
     @balance = 0
-    @time = Time.now
+    @time
   end
 
   def deposit(amount)
     @balance += amount
-    @time
+    @time = Time.now
   end
 
   def withdraw(amount)
     @balance -= amount
-    @time
+    @time = Time.now
   end
 
   def statement
-    "new balance: #{balance}"
+#    "new balance: #{balance}"
   end
 
 end

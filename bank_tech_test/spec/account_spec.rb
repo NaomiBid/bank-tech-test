@@ -44,12 +44,12 @@ describe Account do
     end
   end
 
-  describe '#statement' do
-    it "displays the new balance after a deposit" do
-      account = Account.new
-      account.deposit(1000)
-      expect(account.statement).to include "new balance: 1000"
-    end
-  end
+#  describe '#statement' do
+#    it "displays the new balance after a deposit" do
+#      account = Account.new
+#      account.deposit(1000)
+#      expect(account.statement).to include "new balance: 1000"
+#    end
+#  end
 
 end
