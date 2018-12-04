@@ -14,7 +14,7 @@ describe Account do
 
     it "returns the time and date of the transaction" do
       account = Account.new
-      expect(account.transaction(true, 1000)).to eq [@fake_time, true, 1000, 1000]
+      expect(account.transaction(true, 1000)).to eq ["#{@fake_time} ||  0  || 1000 || 1000"]
     end
 
     it "adds the deposit amount to the current balance" do

@@ -7,7 +7,10 @@ class Statement
   end
 
   def print_statement
-    @transaction_list.join('  ||  ')
+    puts "         Date         || Credit || Debit || Balance "
+    @transaction_list.each do |transaction|
+      puts transaction
+    end
   end
 
 end

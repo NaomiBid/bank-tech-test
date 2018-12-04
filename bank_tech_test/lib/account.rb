@@ -12,13 +12,18 @@ class Account
 
   def transaction(type, amount)
     @transaction = Transaction.new(type, amount)
-    type == true ? @balance += amount : @balance -= amount
-    @statement.transaction_list.push(
-      @transaction.time,
-      @transaction.type,
-      @transaction.amount,
-      @balance
-    )
+    if type == true
+      @balance += amount
+      @statement.transaction_list.push(
+        "#{@transaction.time} ||  0  || #{@transaction.amount} || #{@balance}"
+      )
+    else
+      @balance -= amount
+      @statement.transaction_list.push(
+        "#{@transaction.time} || #{@transaction.amount} ||  0  || #{@balance}"
+      )
+    end
+
   end
 
 end
