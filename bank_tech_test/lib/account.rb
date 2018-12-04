@@ -3,7 +3,7 @@ require_relative 'statement'
 
 class Account
 
-  attr_reader :balance, :transaction_list
+  attr_reader :balance, :statement
 
   def initialize(statement = Statement.new)
     @balance = 0
@@ -13,13 +13,12 @@ class Account
   def transaction(type, amount)
     @transaction = Transaction.new(type, amount)
     type == true ? @balance += amount : @balance -= amount
-    @statement.transaction_list << @transaction
-#    @transaction_list << [
-#      @transaction.time,
-#      @transaction.type,
-#      @transaction.amount,
-#      @balance
-#    ]
+    @statement.transaction_list.push(
+      @transaction.time,
+      @transaction.type,
+      @transaction.amount,
+      @balance
+    )
   end
 
 end

@@ -14,7 +14,7 @@ describe Account do
 
     it "returns the time and date of the transaction" do
       account = Account.new
-      expect(account.transaction(true, 1000)).to eq [[@fake_time, true, 1000, 1000]]
+      expect(account.transaction(true, 1000)).to eq [@fake_time, true, 1000, 1000]
     end
 
     it "adds the deposit amount to the current balance" do
@@ -27,19 +27,6 @@ describe Account do
       account = Account.new
       account.transaction(false, 50)
       expect(account.balance).to eq -50
-    end
-  end
-
-  describe "#transaction_list" do
-    before do
-      @fake_time = Time.now
-      Time.stub(:now) { @fake_time }
-    end
-
-    it "stores a transaction" do
-      account = Account.new
-      account.transaction(true, 1000)
-      expect(account.transaction_list).to eq [[@fake_time, true, 1000, 1000]]
     end
   end
 
