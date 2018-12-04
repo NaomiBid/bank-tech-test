@@ -2,11 +2,12 @@ require_relative 'account'
 
 class Transaction
 
-  def initialize
-  end
+  attr_reader :type, :amount, :time
 
-  def view_transaction
-    
+  def initialize(type, amount)
+    @type = type
+    @amount = amount
+    @time = Time.now
   end
 
 end

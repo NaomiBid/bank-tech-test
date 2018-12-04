@@ -14,29 +14,20 @@ describe Account do
 
     it "returns the time and date of the transaction" do
       account = Account.new
-      expect(account.transaction("deposit", 1000)).to equal @fake_time
+      expect(account.transaction(true, 1000)).to eq [[@fake_time, true, 1000, 1000]]
     end
 
     it "adds the deposit amount to the current balance" do
       account = Account.new
-      account.transaction("deposit", 1000)
+      account.transaction(true, 1000)
       expect(account.balance).to eq 1000
     end
 
     it "deducts the withdrawal amount from the current balance" do
       account = Account.new
-      account.transaction("deposit", 1000)
-      account.transaction("withdrawal", 50)
-      expect(account.balance).to eq 950
+      account.transaction(false, 50)
+      expect(account.balance).to eq -50
     end
   end
-
-#  describe '#statement' do
-#    it "displays the new balance after a deposit" do
-#      account = Account.new
-#      account.deposit(1000)
-#      expect(account.statement).to include "new balance: 1000"
-#    end
-#  end
 
 end

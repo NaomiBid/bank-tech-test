@@ -1,25 +1,23 @@
-require_relative 'statement'
+require_relative 'transaction'
 
 class Account
 
-  attr_reader :balance
+  attr_reader :balance, :transaction_list
 
   def initialize
     @balance = 0
-    @time
+    @transaction_list = []
   end
 
   def transaction(type, amount)
-    if type == "deposit"
-      @balance += amount
-    else
-      @balance -= amount
-    end
-    @time = Time.now
-  end
-
-  def statement
-#    "new balance: #{balance}"
+    @transaction = Transaction.new(type, amount)
+    type == true ? @balance += amount : @balance -= amount
+    @transaction_list << [
+      @transaction.time,
+      @transaction.type,
+      @transaction.amount,
+      @balance
+    ]
   end
 
 end
