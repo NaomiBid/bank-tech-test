@@ -6,4 +6,8 @@ class Statement
     @transaction_list = []
   end
 
+  def print_statement
+    @transaction_list.join('  ||  ')
+  end
+
 end
