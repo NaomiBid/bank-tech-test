@@ -10,20 +10,20 @@ class Account
     @statement = statement
   end
 
-  def transaction(type, amount)
-    @transaction = Transaction.new(type, amount)
-    if type == true
-      @balance += amount
-      @statement.transaction_list.push(
-        "#{@transaction.time} ||  0  || #{@transaction.amount} || #{@balance}"
-      )
-    else
-      @balance -= amount
-      @statement.transaction_list.push(
-        "#{@transaction.time} || #{@transaction.amount} ||  0  || #{@balance}"
-      )
-    end
+  def credit(amount)
+    @transaction = Transaction.new(amount)
+    @balance -= amount
+    @statement.transaction_list.push(
+      "#{@transaction.time} || #{@transaction.amount} ||  0  || #{@balance}"
+    )
+  end
 
+  def debit(amount)
+    @transaction = Transaction.new(amount)
+    @balance += amount
+    @statement.transaction_list.push(
+      "#{@transaction.time} ||  0  || #{@transaction.amount} || #{@balance}"
+    )
   end
 
 end

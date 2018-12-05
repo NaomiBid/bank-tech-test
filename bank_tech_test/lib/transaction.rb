@@ -2,10 +2,9 @@ require_relative 'account'
 
 class Transaction
 
-  attr_reader :type, :amount, :time
+  attr_reader :amount, :time
 
-  def initialize(type, amount)
-    @type = type
+  def initialize(amount)
     @amount = amount
     @time = Time.now
   end
