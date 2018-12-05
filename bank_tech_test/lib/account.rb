@@ -2,7 +2,6 @@ require_relative 'transaction'
 require_relative 'statement'
 
 class Account
-
   attr_reader :balance, :statement
 
   def initialize(statement = Statement.new)
@@ -25,5 +24,4 @@ class Account
       "#{@transaction.time} ||  0  || #{@transaction.amount} || #{@balance}"
     )
   end
-
 end

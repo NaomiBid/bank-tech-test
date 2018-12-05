@@ -1,5 +1,4 @@
 class Statement
-
   attr_reader :transaction_list
 
   def initialize
@@ -7,10 +6,9 @@ class Statement
   end
 
   def print_statement
-    puts "         Date         || Credit || Debit || Balance "
+    puts '         Date         || Credit || Debit || Balance '
     @transaction_list.each do |transaction|
       puts transaction
     end
   end
-
 end
